@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Eid Mubarak wishes and greetings - Send beautiful Eid greetings to your loved ones with our interactive Eid Mubarak card generator. Share personalized Eid wishes on WhatsApp.">
-    <meta name="keywords" content="Eid Mubarak, Eid greetings, Eid wishes, Eid card, Eid Mubarak wishes, Eid celebration, Islamic festival, Eid ul Adha, Eid ul Fitr">
-    <meta name="author" content="MSC WORLD OLTO">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Eid Mubarak Wishes - Send Beautiful Eid Greetings">
-    <meta property="og:description" content="Create and share personalized Eid Mubarak wishes with your loved ones. Send beautiful Eid greetings through WhatsApp.">
-    <meta property="og:image" content="eid.gif">
-    <meta property="og:url" content="https://eid-wish-silk.vercel.app">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Eid Mubarak Wishes - Send Beautiful Eid Greetings | Personalized Eid Cards</title>
-    <link rel="canonical" href="https://eid-wish-silk.vercel.app">
+    <title>Eid Mubarak!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
         :root {
-            --primary-color: #00f2ea; /* Neon teal */
-            --secondary-color: #ff007f; /* Neon pink */
-            --background-color: #1a072c; /* Deep purple */
+            --primary-glow-color: #00ffcc; /* Neon Cyan/Teal */
+            --secondary-glow-color: #9c27b0; /* Festive Purple */
+            --accent-color: #ffeb3b; /* Gold/Yellow for highlights */
             --text-color: #f0f0f0;
-            --card-bg: rgba(40, 20, 60, 0.7); /* Dark semi-transparent */
-            --glow-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--secondary-color);
-            --button-glow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color), 0 0 18px var(--primary-color);
+            --dark-bg: #120E1A; /* Deep dark purple/blue */
+            --medium-bg: #231A31;
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --container-bg: rgba(35, 26, 49, 0.7); /* Semi-transparent dark purple */
+            --container-border: rgba(0, 255, 204, 0.2);
+            --button-gradient-start: var(--primary-glow-color);
+            --button-gradient-end: #33d6ff; /* Lighter blue for gradient */
+            --button-text-color: #111;
+            --whatsapp-bg: #25D366;
+            --whatsapp-text-color: white;
         }
 
         * {
@@ -34,8 +29,8 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--background-color) 0%, #2a0f4a 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
             color: var(--text-color);
             display: flex;
             flex-direction: column;
@@ -47,389 +42,306 @@
         }
 
         .container {
-            background: var(--card-bg);
+            background: var(--container-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3), var(--glow-shadow);
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 
+                        0 0 20px var(--primary-glow-color), 
+                        inset 0 0 15px rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--container-border);
+            width: 100%;
             max-width: 500px;
-            width: 90%;
-            animation: fadeInPage 1s ease-out, pulseGlow 3s infinite ease-in-out;
+            text-align: center;
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3), var(--glow-shadow); }
-            50% { box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 8px var(--primary-color), 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color); }
-            100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3), var(--glow-shadow); }
-        }
-
-        @keyframes inputHoverGlow {
-            0% { box-shadow: var(--glow-shadow); }
-            50% { box-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color), 0 0 18px var(--secondary-color); }
-            100% { box-shadow: var(--glow-shadow); }
-        }
-
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .eid-gif {
-            max-width: 100%;
+        .eid-image {
+            width: 100%;
+            max-width: 300px; /* Control max size of GIF */
             height: auto;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(0, 242, 234, 0.5);
-            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            margin: 0 auto 25px auto;
+            display: block;
+            box-shadow: 0 0 25px rgba(var(--accent-color), 0.5);
         }
 
-        .greeting-text {
-            font-size: 1.8em;
-            font-weight: 600;
+        .festive-greeting {
+            font-size: clamp(1.8rem, 5vw, 2.8rem); /* Responsive font size */
+            font-weight: bold;
+            color: #fff; /* Base color for neon effect */
             margin-bottom: 25px;
-            line-height: 1.4;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradientShine 5s linear infinite, fadeInText 1.5s ease-out 0.5s backwards;
-            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+            animation: fadeInGlow 2s ease-out forwards;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px var(--primary-glow-color),
+                0 0 20px var(--primary-glow-color),
+                0 0 25px var(--primary-glow-color),
+                0 0 30px var(--secondary-glow-color),
+                0 0 40px var(--secondary-glow-color);
         }
 
-        @keyframes gradientShine {
-            0% { background-position: 0% center; }
-            50% { background-position: 200% center; }
-            100% { background-position: 0% center; }
+        @keyframes fadeInGlow {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+                text-shadow: none;
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px var(--primary-glow-color),
+                    0 0 20px var(--primary-glow-color),
+                    0 0 25px var(--primary-glow-color),
+                    0 0 30px var(--secondary-glow-color),
+                    0 0 40px var(--secondary-glow-color);
+            }
         }
         
-        @keyframes fadeInText {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .input-group {
+        .input-field {
+            width: calc(100% - 20px);
+            padding: 15px;
             margin-bottom: 20px;
-        }
-
-        #userName {
-            width: calc(100% - 22px);
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--primary-color);
-            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--container-border);
+            border-radius: 10px;
+            background: var(--input-bg);
             color: var(--text-color);
-            font-size: 1em;
-            margin-bottom: 15px;
-            transition: box-shadow 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        #userName:focus {
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .input-field:focus {
             outline: none;
-            animation: inputHoverGlow 1.5s infinite ease-in-out;
+            border-color: var(--primary-glow-color);
+            box-shadow: 0 0 10px var(--primary-glow-color), inset 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        .btn {
+        .action-button {
             padding: 12px 25px;
-            font-size: 1em;
-            font-weight: 600;
-            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid transparent; /* For outline effect on hover/focus */
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
         }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border-color: var(--primary-color);
-            box-shadow: var(--button-glow);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 8px var(--secondary-color), 0 0 12px var(--secondary-color), 0 0 18px var(--secondary-color);
-            transform: translateY(-2px) scale(1.02);
-        }
-        
-        .btn-primary:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        #customGreeting {
-            margin-top: 25px;
-            font-size: 1.2em;
-            color: var(--text-color);
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            border: 1px dashed var(--primary-color);
-            min-height: 50px; /* So it doesn't collapse when empty */
-            display: none; /* Initially hidden */
-            animation: popIn 0.5s ease-out;
-        }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .whatsapp-btn {
-            background-color: #25D366; /* WhatsApp Green */
-            color: white;
-            border-color: #25D366;
-            margin-top: 20px;
-            box-shadow: 0 0 8px #25D366, 0 0 12px #25D366;
-            display: none; /* Initially hidden */
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #1DAE51;
-            border-color: #1DAE51;
-            box-shadow: 0 0 10px #1DAE51, 0 0 15px #1DAE51;
-            transform: translateY(-2px) scale(1.02);
-        }
-        
-        .whatsapp-btn svg {
+        .action-button .icon {
             width: 20px;
             height: 20px;
-            margin-right: 10px;
             fill: currentColor;
+        }
+        
+        .generate-button {
+            background: linear-gradient(45deg, var(--button-gradient-start), var(--button-gradient-end));
+            color: var(--button-text-color);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+        }
+
+        .generate-button:hover, .generate-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 255, 204, 0.4);
+            border-color: #fff; /* Outline on hover/focus */
+            outline: none;
+        }
+
+        .generate-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(0, 255, 204, 0.3);
+        }
+
+        #customMessage {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 18px;
+            background: rgba(0, 255, 204, 0.08);
+            border: 1px solid var(--container-border);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 1.15rem;
+            line-height: 1.6;
+            display: none;
+            word-wrap: break-word;
+            animation: fadeInMessage 0.5s ease-out;
+        }
+
+        @keyframes fadeInMessage {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .whatsapp-button {
+            background: var(--whatsapp-bg);
+            color: var(--whatsapp-text-color);
+            display: none; /* Hidden initially */
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-button:hover, .whatsapp-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            border-color: var(--whatsapp-text-color); /* Outline */
+            outline: none;
+        }
+        .whatsapp-button:active {
+            transform: translateY(-1px);
         }
 
         .audio-controls {
             margin-top: 30px;
-            display: flex;
+        }
+
+        #muteButton {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border: 1px solid var(--container-border);
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: rgba(0,0,0,0.2);
-            padding: 10px;
-            border-radius: 50px;
+            gap: 8px;
+        }
+        #muteButton .icon {
+            width: 18px; height: 18px; fill: currentColor;
         }
 
-        .audio-controls button {
-            background: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+        #muteButton:hover, #muteButton:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-glow-color);
+            box-shadow: 0 0 8px var(--primary-glow-color);
+            outline: none;
         }
-        .audio-controls button:hover {
-            background: var(--primary-color);
-            color: var(--background-color);
-        }
-
-        .audio-controls input[type="range"] {
-            width: 100px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: transparent;
-            cursor: pointer;
-        }
-        .audio-controls input[type="range"]::-webkit-slider-runnable-track {
-            background: rgba(255,255,255,0.3);
-            height: 5px;
-            border-radius: 5px;
-        }
-        .audio-controls input[type="range"]::-moz-range-track {
-            background: rgba(255,255,255,0.3);
-            height: 5px;
-            border-radius: 5px;
-        }
-        .audio-controls input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            margin-top: -5px; /* Adjust to center */
-            background-color: var(--primary-color);
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            box-shadow: var(--button-glow);
-        }
-        .audio-controls input[type="range"]::-moz-range-thumb {
-            background-color: var(--primary-color);
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            border: none;
-            box-shadow: var(--button-glow);
-        }
-
-
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .greeting-text {
-                font-size: 1.5em;
-            }
-            #customGreeting {
-                font-size: 1em;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-            .container {
-                padding: 20px;
-            }
-        }
-
     </style>
 </head>
 <body>
-    <audio id="backgroundMusic" autoplay loop preload="auto">
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+
     <div class="container">
-        <img src="eid.gif" alt="Eid Mubarak Celebration" class="eid-gif">
+        <img src="eid.gif" alt="Eid Festive Animation" class="eid-image">
 
-        <h1 class="greeting-text">✨ Eid Mubarak! May this Eid bring joy, peace, and prosperity to all! ✨</h1>
+        <h1 class="festive-greeting">✨ Eid Mubarak! May this Eid bring joy, peace, and prosperity to all! ✨</h1>
 
-        <div class="input-group">
-            <input type="text" id="userName" placeholder="Enter your name here">
-            <button id="generateButton" class="btn btn-primary">Generate Eid Wish</button>
-        </div>
+        <input type="text" id="nameInput" class="input-field" placeholder="Enter your name">
 
-        <p id="customGreeting"></p>
+        <button id="generateButton" class="action-button generate-button">Generate Eid Wish</button>
 
-        <button id="whatsappShareButton" class="btn whatsapp-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.35 3.43 16.84L2.05 22L7.31 20.62C8.75 21.39 10.36 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.38 20.28 11.91C20.28 16.44 16.56 20.15 12.04 20.15C10.52 20.15 9.09 19.76 7.87 19.05L7.49 18.83L4.53 19.71L5.43 16.84L5.21 16.44C4.44 15.09 4.01 13.53 4.01 11.91C4.01 7.38 7.72 3.67 12.04 3.67M17.26 14.62C17.03 14.5 16.02 14 15.82 13.93C15.61 13.86 15.46 13.81 15.31 14.04C15.15 14.28 14.65 14.84 14.51 15.02C14.37 15.18 14.22 15.2 13.99 15.09C13.76 14.98 12.97 14.72 12.02 13.86C11.26 13.16 10.76 12.31 10.62 12.08C10.48 11.84 10.6 11.71 10.73 11.59C10.85 11.48 11 11.29 11.15 11.12C11.29 10.96 11.34 10.84 11.44 10.65C11.53 10.45 11.49 10.28 11.42 10.14C11.35 10 10.8 8.66 10.61 8.14C10.42 7.63 10.23 7.69 10.09 7.69C9.96 7.69 9.79 7.69 9.62 7.69C9.46 7.69 9.18 7.75 8.95 7.99C8.72 8.23 8.13 8.76 8.13 9.91C8.13 11.06 8.98 12.16 9.12 12.32C9.27 12.48 10.55 14.54 12.59 15.39C14.21 16.06 14.65 15.97 15.08 15.91C15.57 15.84 16.47 15.31 16.67 14.7C16.87 14.1 16.87 13.65 16.8 13.53C16.74 13.41 16.57 13.34 16.35 13.24C16.12 13.12 15.11 12.62 14.91 12.54C14.7 12.47 14.56 12.42 14.41 12.66C14.25 12.89 13.75 13.45 13.61 13.63C13.47 13.79 13.32 13.81 13.09 13.7C12.86 13.59 12.07 13.33 11.12 12.47C10.36 11.77 9.86 10.92 9.72 10.69C9.58 10.45 9.7 10.32 9.83 10.2C9.95 10.09 10.1 9.9 10.25 9.73C10.39 9.57 10.44 9.45 10.54 9.26C10.63 9.06 10.59 8.89 10.52 8.75C10.45 8.61 9.9 7.27 9.71 6.75C9.52 6.24 9.33 6.3 9.19 6.3C9.06 6.3 8.89 6.3 8.72 6.3C8.56 6.3 8.28 6.36 8.05 6.6C7.82 6.84 7.23 7.37 7.23 8.52C7.23 9.67 8.08 10.77 8.22 10.93C8.37 11.09 9.65 13.15 11.69 14C13.31 14.67 13.75 14.58 14.18 14.52C14.67 14.45 15.57 13.92 15.77 13.31C15.97 12.71 15.97 12.26 15.9 12.14C15.84 12.02 15.67 11.95 15.45 11.85"></path>
-            </svg>
+        <div id="customMessage"></div>
+
+        <button id="shareButton" class="action-button whatsapp-button">
+            <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.044-.53-.044-.315 0-.769.158-1.29.748-.276.306-.655.866-.907 1.255-.433.683-.64 1.518-.667 2.23s.33 1.39.706 1.912c.57 1.005 1.413 1.902 3.232 3.35.64.418 1.205.75 1.729.998.655.308 1.357.294 1.904.134.615-.177 1.367-.822 1.579-1.58.187-.703.187-1.32.13-1.43-.03-.115-.177-.187-.38-.187zm-2.946 9.287c-3.684 0-6.67-2.983-6.67-6.673 0-1.835.73-3.525 1.942-4.795l-1.123-3.696 3.796 1.084a6.61 6.61 0 0 1 5.02.055 6.58 6.58 0 0 1 4.98 6.583c0 3.69-2.987 6.673-6.67 6.673zm8.34-19.792C22.694 4.72 19.41 3.503 15.9 3.503c-3.507 0-6.734 1.22-9.27 3.468-2.53 2.246-4.002 5.474-4.002 8.983 0 3.792 1.604 7.257 4.032 9.696 2.37 2.428 5.683 3.913 9.24 3.913 3.64 0 6.837-1.467 9.27-3.913 2.432-2.44 3.96-5.723 3.96-9.257 0-3.565-1.243-6.89-3.517-9.413z"/></svg>
             Share on WhatsApp
         </button>
+
+        <div class="audio-controls">
+            <button id="muteButton">
+                <!-- Icon will be injected by JS -->
+                Loading Audio...
+            </button>
+        </div>
     </div>
 
-    <div class="audio-controls">
-        <button id="muteButton">Mute</button>
-        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
-    </div>
+    <audio id="bgMusic" src="song.mp3" loop></audio> 
+    <!-- Autoplay is handled by JS to deal with browser policies -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const userNameInput = document.getElementById('userName');
-            const generateButton = document.getElementById('generateButton');
-            const customGreetingDisplay = document.getElementById('customGreeting');
-            const whatsappShareButton = document.getElementById('whatsappShareButton');
-            
-            const backgroundMusic = document.getElementById('backgroundMusic');
+            const audio = document.getElementById('bgMusic');
             const muteButton = document.getElementById('muteButton');
-            const volumeSlider = document.getElementById('volumeSlider');
+            const nameInput = document.getElementById('nameInput');
+            const generateButton = document.getElementById('generateButton');
+            const customMessageDiv = document.getElementById('customMessage');
+            const shareButton = document.getElementById('shareButton');
 
-            // Check for sender name in URL on page load
-            const urlParams = new URLSearchParams(window.location.search);
-            const senderName = urlParams.get('sender');
-            const greetingMessage = document.createElement('h2');
-            greetingMessage.style.color = 'var(--primary-color)';
-            greetingMessage.style.marginBottom = '20px';
-            greetingMessage.style.textAlign = 'center';
-            greetingMessage.style.display = 'none'; // Initially hidden
+            const speakerIconHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/><path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/><path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/></svg>`;
+            const mutedSpeakerIconHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 0 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/></svg>`;
 
-            if (senderName) {
-                greetingMessage.textContent = `${decodeURIComponent(senderName)} sends you an Eid wish! ✨`;
-                greetingMessage.style.display = 'block';
-                // Insert this message after the main greeting text or at the top of the container
-                const container = document.querySelector('.container');
-                const mainGreeting = document.querySelector('.greeting-text');
-                if (container && mainGreeting) {
-                    container.insertBefore(greetingMessage, mainGreeting.nextSibling);
-                }
-                // Hide the input section if a sender name is present
-                document.querySelector('.input-group').style.display = 'none';
-                whatsappShareButton.style.display = 'none';
+            audio.volume = 0.3; // Set initial volume
+
+            // Attempt to play audio and set initial mute button state
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay started successfully
+                    audio.muted = false;
+                    muteButton.innerHTML = speakerIconHTML + ' Mute Music';
+                }).catch(error => {
+                    // Autoplay was prevented
+                    console.warn("Audio autoplay prevented:", error);
+                    // Set to muted and update button to allow user to unmute/play
+                    audio.muted = true;
+                    muteButton.innerHTML = mutedSpeakerIconHTML + ' Play Music';
+                });
+            } else {
+                // Fallback for browsers that don't return a promise
+                // Or if `autoplay` attribute on audio tag itself is blocked and play() is not called by user.
+                // Assume it's silent, so offer to play/unmute.
+                audio.muted = true;
+                muteButton.innerHTML = mutedSpeakerIconHTML + ' Play Music';
             }
-
-            // Set initial volume to maximum
-            backgroundMusic.volume = 1.0;
             
-            // Function to play audio
-            const playAudio = () => {
-                if (backgroundMusic.paused) {
-                    backgroundMusic.play().catch(error => {
-                        console.log("Autoplay prevented, trying again on user interaction");
-                    });
+            muteButton.addEventListener('click', () => {
+                if (audio.muted) {
+                    audio.muted = false;
+                    audio.play().catch(e => console.warn("Error playing audio on unmute:", e));
+                    muteButton.innerHTML = speakerIconHTML + ' Mute Music';
+                } else {
+                    audio.muted = true;
+                    // audio.pause(); // Optional: explicitly pause if you want mute to also stop playback
+                    muteButton.innerHTML = mutedSpeakerIconHTML + ' Play Music';
                 }
-            };
-
-            // Try to play immediately
-            playAudio();
-
-            // Try to play on any user interaction
-            const userInteractions = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
-            userInteractions.forEach(event => {
-                document.addEventListener(event, playAudio, { once: true });
             });
 
             generateButton.addEventListener('click', () => {
-                const name = userNameInput.value.trim();
-                if (name) {
-                    // Update the main greeting text with the friend's name
-                    const mainGreeting = document.querySelector('.greeting-text');
-                    mainGreeting.innerHTML = `✨ Eid Mubarak, ${name}! May this Eid bring joy, peace, and prosperity to you! ✨`;
-
-                    const websiteUrl = "https://eid-wish-silk.vercel.app";
-                    const message = `🌙✨ Eid Mubarak, ${name}! ✨🌙
-
-💛 হৃদয়ের আনন্দে ভরে উঠুক
-🕊️ প্রাণে থাকুক শান্তি
-🌸 জীবনে থাকুক ভালোবাসা
-🚀 আর প্রতিটি স্বপ্ন হোক পূর্ণতা লাভকারী!
-
-আপনজনদের সাথে কাটুক এক আনন্দঘন ঈদ। ঈদ মোবারক! 🌙✨
-— Sent with love 💌 from your festive page:
-📍 ${websiteUrl}
-
-With hugs & duas,
-${name} 🧡`;
-                    customGreetingDisplay.textContent = message;
-                    customGreetingDisplay.style.display = 'block';
-                    whatsappShareButton.style.display = 'inline-flex';
-                    
-                    // Automatically trigger WhatsApp share
-                    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-                    window.open(whatsappUrl, '_blank');
-                } else {
-                    customGreetingDisplay.textContent = 'Please enter your friend\'s name to generate a wish.';
-                    customGreetingDisplay.style.display = 'block';
-                    whatsappShareButton.style.display = 'none';
+                let name = nameInput.value.trim();
+                if (name === "") {
+                    name = "Friend"; // Default name
                 }
+                const message = `Eid Mubarak from ${name}! 🎉 Wishing you happiness and blessings this Eid!`;
+                customMessageDiv.textContent = message;
+                customMessageDiv.style.display = 'block';
+                shareButton.style.display = 'inline-flex'; // Show WhatsApp button using 'inline-flex'
+
+                // Scroll to the message
+                customMessageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
 
-            // Remove the separate WhatsApp button click event since we're auto-sharing
-            // whatsappShareButton.style.display = 'none'; // Keep this if you don't want the button to appear at all after generation
-
-            muteButton.addEventListener('click', () => {
-                backgroundMusic.muted = !backgroundMusic.muted;
-                muteButton.textContent = backgroundMusic.muted ? 'Unmute' : 'Mute';
-                if (!backgroundMusic.muted && backgroundMusic.paused) {
-                    backgroundMusic.play().catch(e => console.error("Error playing audio:", e));
-                }
+            shareButton.addEventListener('click', () => {
+                const messageToShare = customMessageDiv.textContent;
+                // It's good practice to also include a link to the page itself.
+                const siteUrl = window.location.href;
+                const whatsappMessage = `${messageToShare}\n\nCheck out this Eid Greeting: ${siteUrl}`;
+                
+                // Using wa.me link, which is generally preferred
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank');
             });
-
-            volumeSlider.addEventListener('input', () => {
-                backgroundMusic.volume = volumeSlider.value;
-                if (backgroundMusic.volume > 0 && backgroundMusic.muted) {
-                    backgroundMusic.muted = false;
-                    muteButton.textContent = 'Mute';
-                }
-                 if (!backgroundMusic.muted && backgroundMusic.paused && backgroundMusic.volume > 0) {
-                    backgroundMusic.play().catch(e => console.error("Error playing audio:", e));
-                }
-            });
-
         });
     </script>
 
 </body>
 </html>
+
 <script type="text/javascript">
 	atOptions = {
 		'key' : 'aa3f34bae66c232f80baa3e46d7b8713',
