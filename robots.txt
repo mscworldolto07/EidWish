@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://your-website-url.com/sitemap.xml
+Sitemap: https://eid-wish-silk.vercel.app/sitemap.xml
 
 # Disallow any private or sensitive directories
 Disallow: /private/
