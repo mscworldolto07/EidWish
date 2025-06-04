@@ -371,9 +371,11 @@
             generateButton.addEventListener('click', () => {
                 const name = userNameInput.value.trim();
                 if (name) {
+                    // Update the main greeting text with the friend's name
+                    const mainGreeting = document.querySelector('.greeting-text');
+                    mainGreeting.innerHTML = `✨ Eid Mubarak, ${name}! May this Eid bring joy, peace, and prosperity to you! ✨`;
+
                     const websiteUrl = "https://eid-wish-silk.vercel.app";
-                    // Add sender name as a URL parameter
-                    const shareUrl = `${websiteUrl}?sender=${encodeURIComponent(name)}`;
                     const message = `🌙✨ Eid Mubarak, ${name}! ✨🌙
 
 💛 হৃদয়ের আনন্দে ভরে উঠুক
@@ -383,10 +385,10 @@
 
 আপনজনদের সাথে কাটুক এক আনন্দঘন ঈদ। ঈদ মোবারক! 🌙✨
 — Sent with love 💌 from your festive page:
-📍 ${shareUrl}
+📍 ${websiteUrl}
 
 With hugs & duas,
-${name} ��`;
+${name} 🧡`;
                     customGreetingDisplay.textContent = message;
                     customGreetingDisplay.style.display = 'block';
                     whatsappShareButton.style.display = 'inline-flex';
@@ -395,7 +397,7 @@ ${name} ��`;
                     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
                 } else {
-                    customGreetingDisplay.textContent = 'Please enter your name to generate a wish.';
+                    customGreetingDisplay.textContent = 'Please enter your friend\'s name to generate a wish.';
                     customGreetingDisplay.style.display = 'block';
                     whatsappShareButton.style.display = 'none';
                 }
