@@ -10,10 +10,10 @@
     <meta property="og:title" content="Eid Mubarak Wishes - Send Beautiful Eid Greetings">
     <meta property="og:description" content="Create and share personalized Eid Mubarak wishes with your loved ones. Send beautiful Eid greetings through WhatsApp.">
     <meta property="og:image" content="eid.gif">
-    <meta property="og:url" content="https://your-website-url.com">
+    <meta property="og:url" content="https://eid-wish-silk.vercel.app">
     <meta name="twitter:card" content="summary_large_image">
     <title>Eid Mubarak Wishes - Send Beautiful Eid Greetings | Personalized Eid Cards</title>
-    <link rel="canonical" href="https://your-website-url.com">
+    <link rel="canonical" href="https://eid-wish-silk.vercel.app">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -324,6 +324,29 @@
             const muteButton = document.getElementById('muteButton');
             const volumeSlider = document.getElementById('volumeSlider');
 
+            // Check for sender name in URL on page load
+            const urlParams = new URLSearchParams(window.location.search);
+            const senderName = urlParams.get('sender');
+            const greetingMessage = document.createElement('h2');
+            greetingMessage.style.color = 'var(--primary-color)';
+            greetingMessage.style.marginBottom = '20px';
+            greetingMessage.style.textAlign = 'center';
+            greetingMessage.style.display = 'none'; // Initially hidden
+
+            if (senderName) {
+                greetingMessage.textContent = `${decodeURIComponent(senderName)} sends you an Eid wish! ✨`;
+                greetingMessage.style.display = 'block';
+                // Insert this message after the main greeting text or at the top of the container
+                const container = document.querySelector('.container');
+                const mainGreeting = document.querySelector('.greeting-text');
+                if (container && mainGreeting) {
+                    container.insertBefore(greetingMessage, mainGreeting.nextSibling);
+                }
+                // Hide the input section if a sender name is present
+                document.querySelector('.input-group').style.display = 'none';
+                whatsappShareButton.style.display = 'none';
+            }
+
             // Set initial volume to maximum
             backgroundMusic.volume = 1.0;
             
@@ -348,6 +371,9 @@
             generateButton.addEventListener('click', () => {
                 const name = userNameInput.value.trim();
                 if (name) {
+                    const websiteUrl = "https://eid-wish-silk.vercel.app";
+                    // Add sender name as a URL parameter
+                    const shareUrl = `${websiteUrl}?sender=${encodeURIComponent(name)}`;
                     const message = `🌙✨ Eid Mubarak, ${name}! ✨🌙
 
 💛 হৃদয়ের আনন্দে ভরে উঠুক
@@ -357,10 +383,10 @@
 
 আপনজনদের সাথে কাটুক এক আনন্দঘন ঈদ। ঈদ মোবারক! 🌙✨
 — Sent with love 💌 from your festive page:
-📍 Click to open
+📍 ${shareUrl}
 
 With hugs & duas,
-${name} 🧡`;
+${name} ��`;
                     customGreetingDisplay.textContent = message;
                     customGreetingDisplay.style.display = 'block';
                     whatsappShareButton.style.display = 'inline-flex';
@@ -375,12 +401,8 @@ ${name} 🧡`;
                 }
             });
 
-            whatsappShareButton.addEventListener('click', () => {
-                const name = userNameInput.value.trim();
-                const message = `🌟 *Eid Mubarak!* 🌟\n\nDear ${name},\n\nMay this blessed Eid bring:\n✨ Joy to your heart\n✨ Peace to your soul\n✨ Love to your life\n✨ Success to your dreams\n\nWishing you and your family a day filled with happiness and a year filled with joy! 🎉\n\n*Eid Mubarak from:* ${name} 💫\n\nSent with love from this festive page: ${window.location.href}`;
-                const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            });
+            // Remove the separate WhatsApp button click event since we're auto-sharing
+            // whatsappShareButton.style.display = 'none'; // Keep this if you don't want the button to appear at all after generation
 
             muteButton.addEventListener('click', () => {
                 backgroundMusic.muted = !backgroundMusic.muted;
